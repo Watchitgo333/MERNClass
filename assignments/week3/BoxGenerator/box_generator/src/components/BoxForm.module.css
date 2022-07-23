@@ -1,0 +1,11 @@
+.formBlock {
+    display: flex;
+}
+
+.boxContainer {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
