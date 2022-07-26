@@ -1,3 +1,6 @@
+# Issues
+When a checkbox is checked, the text needs to be struck through.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
