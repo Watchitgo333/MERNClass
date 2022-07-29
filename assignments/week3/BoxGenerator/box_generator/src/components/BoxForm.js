@@ -13,7 +13,9 @@ const BoxForm = () => {
     // const [heightwidth, setHeightWidth] = useState('')
     const [colorArr, setColorArr] = useState([]);
     const [backgroundColor, setBackgroundcolor] = useState('');
-    
+    const [hwArr, setHWArr] = useState([]);
+    const [hw, setHW] = useState('');
+    const [colorhwArr, setColorHWArr] = useState([]);
     
     const createBox = (e) => {
         
@@ -21,12 +23,13 @@ const BoxForm = () => {
         e.preventDefault();
 
         setColorArr([...colorArr, backgroundColor]);
-        
+        setHWArr([...hwArr, hw]);
+        setColorHWArr([colorArr, hwArr]);
         //This code is part of the height and width feature
         // setColorHWObj({...colorhwObj, color : backgroundColor, ...colorhwObj, hw : heightwidth });
         // setColorHWArr([...colorhwArr, colorhwObj]);
         // setHwArr([...hwArr, heightwidth]);
-        // console.log(colorhwArr)
+        console.log(colorhwArr)
     };
 
     
@@ -37,17 +40,17 @@ const BoxForm = () => {
                         <label>Color:</label>
                         <input type="color" onChange={(e) => setBackgroundcolor(e.target.value)}/>
                     </div>
-                    {/* <div>
+                    <div>
                         <label>Height and Width:</label>
-                        <input type="number" onChange={(e) => setHeightWidth(e.target.value)}/>
-                    </div> */}
+                        <input type="number" onChange={(e) => setHW(e.target.value)}/>
+                    </div>
                     <button type="submit">Add</button>
                 </form>
                 <div className={styles.boxContainer}>
                     {
-                        colorArr.map( (color) => {
-                            return <div key="{index}" style={{margin:"10px", backgroundColor: color, boxSizing:'border-box', width: "100px", height: "100px" }}></div>
-                        })
+                    //    colorArr.map( (color, index) => {
+                    //         return <div key={index} style={{margin:"10px", backgroundColor: color, boxSizing:'border-box', width: "100px", height: "100px" }}></div>
+                    //     })
                     }
 
                     {/* This code is part of the height and width feature */}
@@ -60,6 +63,8 @@ const BoxForm = () => {
                 </div>
             </div>
     )
+
+    // const arr = [['green', 'blue'], [10 + 'px', `${20}px`]]
 }
 
 export default BoxForm;

@@ -15,7 +15,7 @@ function App() {
       <TaskForm taskArr={taskArr} setTaskArr={setTaskArr}/>
       {
         taskArr.map((task, key) => {
-          return <TaskList key={key} taskArr={taskArr} setTaskArr={setTaskArr} id={task.taskId} taskContent={task.taskContent} taskCompleted={task.taskCompleted} />
+          return <TaskList key={key} taskArr={taskArr} setTaskArr={setTaskArr} id={task.taskId} taskContent={task.taskContent} taskComplete={task.taskComplete} />
         })
       }
     </div>
