@@ -13,9 +13,9 @@ const TaskList = (props) => {
         const complete = true
         const incomplete = false
         const newTaskList = taskArr.map((task, index)=>{
-            // if(task.taskId === e.target.id){
+            if(task.taskId === e.target.id){
                 // console.log(true)
-                if(taskComplete) {
+                if(task.taskComplete) {
                     const updateTask = {...task, taskComplete:incomplete}
                     console.log(updateTask)
                     return updateTask
@@ -24,25 +24,12 @@ const TaskList = (props) => {
                     console.log(updateTask)
                     return updateTask
                 }
-            // }
+            } else {
+                const updateTask = {...task}
+                return updateTask
+            }
         })
         setTaskArr(newTaskList)
-        // const complete = true
-        // const incomplete = false
-        // const newTaskList = taskArr.map((task)=> {
-        //     // console.log(task.taskCompleted===true)
-        //     // console.log(id, task.taskId)
-        //     // console.log(e.target.id)
-        //     console.log(task.taskId)
-        //         if(taskComplete) {
-        //             const updateTask = {...task, taskComplete:incomplete}
-        //             return updateTask
-        //         } else {
-        //             const updateTask = {...task, taskComplete:complete}
-        //             return updateTask
-        //     }
-        // })
-        // setTaskArr(newTaskList)
     }
 
 
