@@ -1,5 +1,3 @@
-# Issues
-When a checkbox is checked, the text needs to be struck through.
 
 # Getting Started with Create React App
 
