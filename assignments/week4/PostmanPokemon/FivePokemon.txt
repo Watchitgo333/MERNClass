@@ -1,0 +1,163 @@
+1. https://pokeapi.co/api/v2/pokemon/wobbuffet
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "shadow-tag",
+                "url": "https://pokeapi.co/api/v2/ability/23/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "telepathy",
+                "url": "https://pokeapi.co/api/v2/ability/140/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+    "base_experience": 142,
+    "forms": [
+        {
+            "name": "wobbuffet",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/202/"
+        }
+    ],
+    
+2. https://pokeapi.co/api/v2/pokemon/400
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "simple",
+                "url": "https://pokeapi.co/api/v2/ability/86/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "unaware",
+                "url": "https://pokeapi.co/api/v2/ability/109/"
+            },
+            "is_hidden": false,
+            "slot": 2
+        },
+        {
+            "ability": {
+                "name": "moody",
+                "url": "https://pokeapi.co/api/v2/ability/141/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+    "base_experience": 144,
+    "forms": [
+        {
+            "name": "bibarel",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/400/"
+        }
+    ],
+
+3. https://pokeapi.co/api/v2/pokemon/20
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "run-away",
+                "url": "https://pokeapi.co/api/v2/ability/50/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "guts",
+                "url": "https://pokeapi.co/api/v2/ability/62/"
+            },
+            "is_hidden": false,
+            "slot": 2
+        },
+        {
+            "ability": {
+                "name": "hustle",
+                "url": "https://pokeapi.co/api/v2/ability/55/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+    "base_experience": 145,
+    "forms": [
+        {
+            "name": "raticate",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/20/"
+        }
+    ],
+
+4. https://pokeapi.co/api/v2/pokemon/charmander
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "blaze",
+                "url": "https://pokeapi.co/api/v2/ability/66/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "solar-power",
+                "url": "https://pokeapi.co/api/v2/ability/94/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+    "base_experience": 62,
+    "forms": [
+        {
+            "name": "charmander",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/4/"
+        }
+    ],
+
+5. https://pokeapi.co/api/v2/pokemon/weezing
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "levitate",
+                "url": "https://pokeapi.co/api/v2/ability/26/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "neutralizing-gas",
+                "url": "https://pokeapi.co/api/v2/ability/256/"
+            },
+            "is_hidden": false,
+            "slot": 2
+        },
+        {
+            "ability": {
+                "name": "stench",
+                "url": "https://pokeapi.co/api/v2/ability/1/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+    "base_experience": 172,
+    "forms": [
+        {
+            "name": "weezing",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/110/"
+        }
+    ],
