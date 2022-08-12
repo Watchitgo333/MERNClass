@@ -1,8 +1,9 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import axios from 'axios';
 
-const ProductForm = () => {
+const ProductForm = (props) => {
 
+    const {products, setProducts} = props;
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
@@ -18,9 +19,13 @@ const ProductForm = () => {
         .then(res=>{
             console.log(res);
             console.log(res.data);
+
+            setProducts([...products, res.data]);
+            setTitle("");
+            setDescription("");
+            setPrice("");
         })
         .catch(err=>console.log(err))
-
 
     }
 
@@ -31,11 +36,11 @@ const ProductForm = () => {
             </h1>
             <form onSubmit={onSubmitHandler}>
                 <label>Title:</label>
-                <input type="text" onChange={(e)=>setTitle(e.target.value)} />
+                <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
                 <label>Price:</label>
-                <input type="text" onChange={(e)=>setPrice(e.target.value)} />
+                <input type="text" value={price} onChange={(e)=>setPrice(e.target.value)} />
                 <label>Description:</label>
-                <input type="text" onChange={(e)=>setDescription(e.target.value)}/>
+                <input type="text" value={description} onChange={(e)=>setDescription(e.target.value)}/>
                 <button type='submit'>Submit</button>
             </form>
         </div>
