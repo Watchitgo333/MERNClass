@@ -3,29 +3,22 @@ import axios from 'axios';
 
 const ProductForm = (props) => {
 
-    const {products, setProducts} = props;
-    const [title, setTitle] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
+    const {initialTitle, initialPrice, initialDescription, onSubmitProp} = props;
+    const [title, setTitle] = useState(initialTitle);
+    const [price, setPrice] = useState(initialPrice);
+    const [description, setDescription] = useState(initialDescription);
     
     const onSubmitHandler = (e) => {
         e.preventDefault();
-
-        axios.post("http://localhost:8000/api/products", {
+        onSubmitProp({
             title,
             price,
             description
         })
-        .then(res=>{
-            console.log(res);
-            console.log(res.data);
 
-            setProducts([...products, res.data]);
-            setTitle("");
-            setDescription("");
-            setPrice("");
-        })
-        .catch(err=>console.log(err))
+        setTitle("")
+        setPrice("")
+        setDescription("")
 
     }
 

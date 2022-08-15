@@ -1,34 +1,28 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
+import ProductForm from './ProductForm';
 
 const UpdateForm = (props) => {
     
-    const {id} = useParams();
-    const [title, setTitle] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
     const navigate = useNavigate();
+    const {id} = useParams();
+    const [product, setProduct] = useState({});
+    const [loaded, setLoaded] = useState(false);
     
     useEffect(()=>{
         axios.get("http://localhost:8000/api/products/"+id)
             .then(res=>{
-                setTitle(res.data.title);
-                setPrice(res.data.price.$numberDecimal);
-                setDescription(res.data.description);
-                // console.log(res.data.price)
+                setProduct(res.data)
+                console.log(product)
+                setLoaded(true)
             })
             .catch(err => console.log(err))
     }, [])
 
-    const onSubmitHandler = (e) =>{
-        e.preventDefault();
-        axios.put('http://localhost:8000/api/products/'+id, {
-            title,
-            price,
-            description
-        })
+    const onSubmitHandler = productParam =>{
+        axios.put('http://localhost:8000/api/products/'+id, productParam)
+
             .then(res=>{
                 console.log(res);
                 navigate("/products")
@@ -39,15 +33,10 @@ const UpdateForm = (props) => {
     return (
         <div>
             <h1>Edit Product</h1>
-            <form onSubmit={onSubmitHandler}>
-                <label>Title:</label>
-                <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
-                <label>Price:</label>
-                <input type="text" value={price} onChange={(e)=>setPrice(e.target.value)} />
-                <label>Description:</label>
-                <input type="text" value={description} onChange={(e)=>setDescription(e.target.value)}/>
-                <button type='submit'>Submit</button>
-            </form>
+            {
+                loaded && <ProductForm onSubmitProp={onSubmitHandler} initialTitle={product.title}
+                initialPrice={product.price.$numberDecimal} initialDescription={product.description}/>
+            }
         </div>
     )
 }
