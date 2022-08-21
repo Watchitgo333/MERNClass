@@ -8,19 +8,19 @@ const createAuthor = (req, res) => {
         })
         .catch((err)=>{
             console.log("Error in createAuthor", err);
-            req.status(201).json(err);
+            res.status(400).json({message:"Woops", error: err.errors});
         })
 }
 
 const getAuthors = (req, res) => {
-    Author.find({})
+    Author.find({}).sort({name:1})
         .then((authors)=>{
             console.log(authors)
             res.json(authors);
         })
         .catch((err)=>{
             console.log("Error in getAuthors", err);
-            req.status(400).json(err);
+            res.status(400).json(err);
         })
 }
 
@@ -32,7 +32,7 @@ const getAuthorById = (req, res) => {
         })
         .catch((err)=>{
             console.log("Error in getAuthorById", err);
-            req.status(400).json(err);
+            res.status(400).json({message:"We could not find an Author with that id. Want to add a new Author?", error: err.errors});
         })
 }
 
@@ -44,7 +44,7 @@ const updateAuthorById = (req, res) => {
         })
         .catch((err)=>{
             console.log("Error in updateAuthorById", err);
-            req.status(400).json(err);
+            res.status(400).json({message:"Woops", error: err.errors});
         })
 }
 
@@ -56,7 +56,7 @@ const deleteAuthorById = (req, res) => {
         })
         .catch((err)=>{
             console.log("Error in deleteAuthorById", err);
-            res.json(400).json(err);
+            res.status(400).json(err);
         })
 }
 

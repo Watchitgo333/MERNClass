@@ -1,21 +1,25 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom';
 import Authors from "./components/Authors";
 import Navbar from './components/Navbar';
-import Form from "./components/Form";
+import Main from './views/Main';
 import {useState} from 'react';
+import EditForm from './components/EditForm';
+import axios from 'axios';
 
 function App() {
 
-  const [menuItem, setMenuItem] = ("");
+  const [page, setPage] = useState("");
+  const [authors, setAuthors] = useState([])
+  const [errors, setErrors] = useState({})
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar menuItem={menuItem} setMenuItem={setMenuItem}/>
         <Routes>
           <Route path="/" element={<Authors/>}/>
-          <Route path="/authors/create" element={<Form/>}/>
+          <Route path="/authors/create" element={<Main/>}/>
+          <Route path="/authors/edit/:id" element={<EditForm/>}/>
         </Routes>
       </BrowserRouter>
     </div>

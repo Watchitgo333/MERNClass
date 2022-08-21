@@ -1,27 +1,39 @@
-import * as React from 'react';
+// import * as React from 'react';
+import {useState} from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
     const navigate = useNavigate();
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const {gotoPage, setGotoPage} = props
+    const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (e) => {
         setAnchorEl(e.currentTarget);
     };
     const handleClose = () => {
-        navigate("/authors/create")
         setAnchorEl(null);
-
+        
     };
+    const menuButton = () => {
+        if(gotoPage == "Home"){
+            navigate("/")
+        }
+
+        if(gotoPage == "Add Author"){
+            navigate("/authors/create")
+        }
+
+    }
+
 
     return (
             <div>
                 <div >
-                    <Typography variant="h3">Favorite Authors</Typography>
+                    <Typography variant="h4">Favorite Authors</Typography>
                     <Button
                         id="basic-button"
                         aria-controls={open ? 'basic-menu' : undefined}
@@ -41,8 +53,8 @@ const Navbar = () => {
                 'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>
-                    Add Author
+                <MenuItem onClick={menuButton}>
+                    {gotoPage}
                 </MenuItem>
             </Menu>
             </div>
